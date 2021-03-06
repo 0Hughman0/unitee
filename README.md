@@ -10,6 +10,10 @@ In practice as a hobby project, I would thoroughly recommend those looking for a
 
 ## Usage
 
+Installation:
+
+    pip install unitee
+
 The core of Unitee is the `UnitSystem` object, this stores information about the unit system you want to use and provide tools to make use of it. You can define your own `UnitSystem`, or simply make use of the ready made `unitee.SI` system, which includes the units and constants of the [International System of Units](https://simple.wikipedia.org/wiki/International_System_of_Units), I would expect this is sufficient for the majority of users. 
 
 To get started
