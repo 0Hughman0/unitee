@@ -93,5 +93,11 @@ def test_conversions():
     assert v.to('m.h-1') == 15 * 3600 * SI('m.h-1')
     
     
+def test_unitdefs():
+    with pytest.raises(AssertionError):
+        SI.add_unit('in', 'inches', False, SI('2.54 cm'))
+    
+    SI.add_unit('in', 'inches', False, SI('2.54e-2 m'))
+    
 
     

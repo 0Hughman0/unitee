@@ -33,11 +33,15 @@ class _UnitBaseCls:
 
     symbol: str = None
     name: str = None
-    base: bool = None
-    base_unit: _Quantity = None
+    base: _Quantity = None
+    base_unit: bool = None
 
     def __init__(self, prefix: str=''):
         self.prefix = self.unit_system.prefixes[prefix]
+        
+    @property
+    def is_base(self):
+        return self.__class__.base_unit and self.prefix.symbol == ''
 
     @property
     def prefix_val(self) -> float:
@@ -110,6 +114,10 @@ class UnitSystem:
         Immutable copy of `self._units`, prevents naughty manual insersion of units!
         """
         return types.MappingProxyType(self._units)
+
+    @property
+    def base_units(self) -> MappingProxyType:
+        return MappingProxyType({symbol: unit for symbol, unit in self.units.items() if unit.base})
         
     @property
     def config_dir(self) -> pathlib.Path:
@@ -122,6 +130,9 @@ class UnitSystem:
         """
         Add a new unit to this UnitSystem
         """
+        if base:
+            assert all(unit.is_base for unit, exp in base)
+        
         Unit = type(f'Unit<{name}({symbol})>', (self.UnitBaseCls,), 
                     {'symbol': symbol, 'name': name, 'base': base, 'base_unit': base_unit})
 
@@ -312,7 +323,7 @@ class _Quantity(float):
             units = {}
             
         obj._units: Mapping[_UnitBaseCls, int] = units
-        obj._is_base: bool = all(unit.base_unit and unit.prefix.symbol == '' for unit in units)
+        obj._is_base: bool = all(unit.is_base for unit in units)
 
         return obj
         

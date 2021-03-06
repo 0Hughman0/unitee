@@ -123,7 +123,7 @@ Depending on how much you want to customise `unitee`'s behaviour, you can do a f
 
 You can add new units on the fly to the `SISystem`, using `SI.add_unit`:
 
-    >>> SI.add_unit('in', 'inches', False, SI('2.54 cm'))
+    >>> SI.add_unit('in', 'inches', False, SI('2.54e-2 m'))  # needs to be in base units
     
 Or you can subclass `UnitSystem` and create your own. You can overwrite the `load_prefixes`, `load_base_units`, `load_derived_units` and `load_consts` methods. These should fill in the `self.prefixes`, `self._units` ... `self._units` and `self.consts` attributes. 
 
