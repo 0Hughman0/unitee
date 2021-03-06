@@ -312,7 +312,7 @@ class _Quantity(float):
             units = {}
             
         obj._units: Mapping[_UnitBaseCls, int] = units
-        obj._is_base: bool = all(unit.base_unit for unit in units)
+        obj._is_base: bool = all(unit.base_unit and unit.prefix.symbol == '' for unit in units)
 
         return obj
         

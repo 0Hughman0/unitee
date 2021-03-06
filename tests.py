@@ -57,6 +57,7 @@ def test_arithmatic():
     assert meter != twometer
     assert twometer > meter
     assert twometer >= meter
+    assert SI('999.9 m') < SI('1 km')
     
     assert not twometer > twometer
     assert twometer >= twometer
