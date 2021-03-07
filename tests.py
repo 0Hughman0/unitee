@@ -99,5 +99,10 @@ def test_unitdefs():
     
     SI.add_unit('in', 'inches', False, SI('2.54e-2 m'))
     
+    L_in = SI('12 in')
+    L_cm = SI('30 cm')
+    
+    assert L_in > L_cm
+    assert L_in < SI('31 cm')
 
     

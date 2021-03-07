@@ -40,7 +40,7 @@ class _UnitBaseCls:
         self.prefix = self.unit_system.prefixes[prefix]
         
     @property
-    def is_base(self):
+    def is_base(self) -> bool:
         return self.__class__.base_unit and self.prefix.symbol == ''
 
     @property
