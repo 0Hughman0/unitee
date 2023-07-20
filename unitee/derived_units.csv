@@ -21,7 +21,7 @@ gray,Gy,1.0,m2.s-2
 sievert,Sv,1.0,m2.s-2
 katal,kat,1.0,s-1.mol
 gram,g,1e-3,kg
-electron volt,eV,1.602176565e-19,m.kg.s-2
+electron volt,eV,1.602176565e-19,m2.kg.s-2
 minute,min,60,s
 hour,h,3600,s
 day,d,86400,s
