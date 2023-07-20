@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "unitee"
-version = "0.1.5"
+version = "0.1.6"
 description = "super simple units"
 authors = ["0Hughman0 <rammers2@hotmail.co.uk>"]
 license = "MIT"
